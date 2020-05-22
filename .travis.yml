@@ -1,0 +1,9 @@
+addons:
+  sonarcloud:
+    organization: "mr-krim"
+    token:
+      secure: "hm7g75tsEC7UT3Tbg+KDefJr77goqua5NJFObwQjZY9mEFqAmvDn9o8zMRf4j9DzOPl/i+5IqXFdwtLzGiT29nGMisRRfTWdqgLUo94GSkmuV940RvX4Mhj2EkcsehrMyaQoV6CMv9jcKUVHTNyy+zVMQkNjtQpyFsP28egJ1nhIyda7x51S8RVnpeMMTuy7JoO8GYpLmMxxSqf5x2BPwAGSz+DjWUBTRUVOUz8X18qff97jBEuOjAN9FAdhq6W/i2IZx8lJPifJdzVln6FPRjp/HqNxhmHmHnJfyPmWpJp3CigTOYxEYHEd/hKOluff9SSMYNm4AAr5yZI9uPCPnwm9iGNQZKsuLamvSPFeRKG2v454sLiZQqd5D+YQWjcDGz1GjO4QejwdN4yijwa3U8BPMAr9h7V/qtUdSjGd1Yf85+Qe9mnc16PN2d0BefauSnBvOjTYqOZSBb/OVoCVvduNqJswc3TvetYnzlsL5np97lbWivOuGtu33NA+D/V+kIaroObmM4m0jiNcETIKc6TFtDk/BafuMl0AtRdpk8tI9KUMw4C40dKrY+E6J0W9yKrdz6CDI5OyYmWIuiaA4rZNPHwdhFXE8QYaZbSPEl+cYJinlJDhU47Nzi0QA7+syydmFWu2jed/2AHDbye2fnIMOPHrvu93W9TVxV1ZcWw="
+
+script:
+  # the following command line builds the project, runs the tests with coverage and then execute the SonarCloud analysis
+  - sonar-scanner
