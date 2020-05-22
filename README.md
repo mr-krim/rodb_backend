@@ -1,1 +1,1 @@
-# git-github.com-mr-krim-ragnarok_origin_database_backend
+This project contains a source code of a backend service for Ragnarok Origin Database
