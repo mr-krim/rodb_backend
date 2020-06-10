@@ -25,6 +25,17 @@ func apiResponse(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
+func monstersList(w http.ResponseWriter, r *http.Request) {
+	switch r.Method {
+	case "GET":
+		w.WriteHeader(http.StatusOK)
+		w.Write([]byte(`{"message": "monsters","list"}`))
+	default:
+		w.WriteHeader(http.StatusNotFound)
+		w.Write([]byte(`{"message": "Can't find method requested"}`))
+	}
+}
+
 func checkReqEnvVars() {
 	checkEnvVars := func(key string) {
 		val, ok := os.LookupEnv(key)
@@ -44,5 +55,14 @@ func checkReqEnvVars() {
 func main() {
 	checkReqEnvVars()
 	http.HandleFunc("/", apiResponse)
-	log.Fatal(http.ListenAndServe(":8080", nil))
+	http.HandleFunc("/monsters", monstersList)
+	s := &http.Server{
+		Addr: ":8080",
+		// Handler:        myHandler,
+		ReadTimeout:    3,
+		WriteTimeout:   1,
+		MaxHeaderBytes: 1 << 20,
+	}
+	log.Fatal(s.ListenAndServe())
+	//	log.Fatal(http.ListenAndServe(":8080", nil))
 }
